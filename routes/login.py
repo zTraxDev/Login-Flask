@@ -20,11 +20,6 @@ def login_():
 
         if users == None:
             return ("Error: Usuario o Contraseñas son Incorrectas")
-        elif users is not a:
-            return ("Error: Cuenta no Registrada")
-        elif  a == users:
-            session.accessed = True
-            return redirect("/home")
         elif error is None:
             session.accessed = True
             return redirect("/home")
@@ -32,20 +27,18 @@ def login_():
 
 @login.route("/register", methods =['GET','POST'])
 def register():
-
     if request.method == 'POST':
         #------
         user = request.form['txtName']
         password = request.form['txtPassword']
         email = request.form['txtCorreo']
-
+         
         conexion = DataBase()
         cursor = conexion.cursor()
         sql = 'INSERT INTO user (name, password, email) VALUES (%s, %s, %s)'
         data = (user, password, email)
         cursor.execute(sql, data)
-        s = conexion.commit()
-        error = None
+        conexion.commit()
         session.clear()
         return redirect("/login")
     return render_template('templates/register.html')
