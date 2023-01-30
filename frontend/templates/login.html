@@ -1,0 +1,51 @@
+{% include "templates/header.html" %}
+
+   <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+           
+        </div>
+        <div class="col-md-4">
+            <br>
+          <div class="card">
+            <div class="card-header">
+              <div class="mb text-center text-activate">
+                Welcome Again!
+              </div>
+            </div>
+            <div class="card-body">
+
+                <form action="/login" method="POST">
+                 <div class="mb-3">
+                   <label for="txtUse" class="form-label">Usuario</label>
+                   <input type="text"
+                     class="form-control" name="txtUse" id="txtUse" aria-describedby="helpId" placeholder="Escribe tu Usuario">
+                 </div>
+
+                <div class="mb-3">
+                  <label for="txtContra" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" name="txtContra" id="txtContra" aria-describedby="helpId" placeholder="Escribe una contraseña">              
+                </div>
+                <div class="md-1 text-center">
+                  <button type="submit" class="btn btn-outline-secondary">Entrar <i class="bi bi-door-open"></i></button>
+                </div>
+                 <div clasS="mb-1 text-center">
+                  <span>No tienes cuenta? <a href="/register">Crea una cuenta</a></span>
+                 </div>
+
+                </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+        
+    </div>
+   </div>
+
+
+{% include "templates/footer.html" %}
