@@ -15,7 +15,6 @@ def login_():
         cursor = conexion.cursor()
         cursor.execute('SELECT * FROM user WHERE name = %s AND password = %s', (userName, password, ))
         users = cursor.fetchone()
-        a = session["Sesion_ID"] = users[1]
         error = None
 
         if users == None:
@@ -32,14 +31,14 @@ def register():
         user = request.form['txtName']
         password = request.form['txtPassword']
         email = request.form['txtCorreo']
-         
+
         conexion = DataBase()
         cursor = conexion.cursor()
         sql = 'INSERT INTO user (name, password, email) VALUES (%s, %s, %s)'
         data = (user, password, email)
         cursor.execute(sql, data)
         conexion.commit()
-        session.clear()
+
         return redirect("/login")
     return render_template('templates/register.html')
 
